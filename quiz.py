@@ -52,23 +52,24 @@ class TeReoQuiz: #makes the class for the quiz
         self.root = root 
         self.root.title("Te Reo Māori Quiz") #makes window title
         self.root.geometry("500x400") #makes window size
+        self.root.config(bg ="#2c610f") #makes background color
 
         self.current_q = 0 #sets the question
         self.score = 0 #sets the score
 
-        self.title_label = tk.Label(root, text="Te Reo Māori Quiz", font=("Helvetica", 20, "bold"))
-        self.title_label.pack(pady=20) #adds title
+        self.title_label = tk.Label(root, text="Te Reo Māori Quiz", font=("Helvetica", 20, "bold"), bg="#e0f7d4", fg="#1a5d1a")
+        self.title_label.pack(pady=20) #adds title wiht colour
 
-        self.question_label = tk.Label(root, text="", font=("Helvetica", 16), wraplength=450)
-        self.question_label.pack(pady=20) #adds question
+        self.question_label = tk.Label(root, text="", font=("Helvetica", 16), bg="#e0f7d4", wraplength=450)
+        self.question_label.pack(pady=20) #adds question with colour
 
-        self.true_button = tk.Button(root, text="True", font=("Helvetica", 14), width=10, command=lambda: self.check_answer(True))
+        self.true_button = tk.Button(root, text="True", font=("Helvetica", 14), bg="#a5d6a7", width=10, command=lambda: self.check_answer(True))
         self.true_button.pack(pady=10) #adds true button
 
-        self.false_button = tk.Button(root, text="False", font=("Helvetica", 14), width=10, command=lambda: self.check_answer(False))
-        self.false_button.pack(pady=10) #adds false button
+        self.false_button = tk.Button(root, text="False", font=("Helvetica", 14), bg="#ef9a9a", width=10, command=lambda: self.check_answer(False))
+        self.false_button.pack(pady=10) #adds false button with colour
         self.score_label = tk.Label(root, text="Score: 0", font=("Helvetica", 14))
-        self.score_label.pack(pady=20)
+        self.score_label.pack(pady=20) #adds score text
 
         self.load_question() #loads the first question
 
