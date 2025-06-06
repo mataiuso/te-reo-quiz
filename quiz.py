@@ -54,6 +54,7 @@ class TeReoQuiz: #makes the class for the quiz
         self.root.geometry("500x400") #makes window size
 
         self.current_q = 0 #sets the question
+        self.score = 0 #sets the score
 
         self.title_label = tk.Label(root, text="Te Reo Māori Quiz", font=("Helvetica", 20, "bold"))
         self.title_label.pack(pady=20) #adds title
@@ -66,6 +67,8 @@ class TeReoQuiz: #makes the class for the quiz
 
         self.false_button = tk.Button(root, text="False", font=("Helvetica", 14), width=10, command=lambda: self.check_answer(False))
         self.false_button.pack(pady=10) #adds false button
+        self.score_label = tk.Label(root, text="Score: 0", font=("Helvetica", 14))
+        self.score_label.pack(pady=20)
 
         self.load_question() #loads the first question
 
@@ -74,12 +77,15 @@ class TeReoQuiz: #makes the class for the quiz
             q_text = questions[self.current_q]["question"] #gets the question text
             self.question_label.config(text=f"Q{self.current_q + 1}: {q_text}") #updates the question text
         else:
-            messagebox.showinfo("Quiz Complete", "Ka pai! You finished the quiz.") #goodbye message
+            messagebox.showinfo("Quiz Complete", f"Ka pai! Your final score: {self.score}/{len(questions)}") #goodbye message with score
             self.root.destroy() #closes the window
 
     def check_answer(self, user_answer): #checks the answer
         correct_answer = questions[self.current_q]["answer"] #gets the correct answer
+        if user_answer == correct_answer:
+            self.score += 1 #adds to the score
         self.current_q += 1 #shows question number
+        self.score_label.config(text=f"Score: {self.score}") #updates the score text
         self.load_question() #loads the next question
 
 root = tk.Tk() #creates the main window
