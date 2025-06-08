@@ -19,7 +19,3 @@ List of key features:
 - ✅ Master the given questions
 - ✅ Score goes up if answer correct
 - ✅ Check score at the end after 43 questions
-  
----
-
-![Screenshot]("C:\Users\Matai\OneDrive\2CSC\te-reo-quiz\yelie.png")
