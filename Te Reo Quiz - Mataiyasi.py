@@ -1,5 +1,6 @@
 import tkinter as tk #adds tkinter for the gui
 from tkinter import messagebox #adds messageboxs in tkinter
+import tkinter.font as tkFont
 
 questions = [ #nested list of q & a
     {"question": "Kia ora is a Māori greeting.", "answer": True},
@@ -57,18 +58,18 @@ class TeReoQuiz: #makes the class for the quiz
         self.current_q = 0 #sets the question
         self.score = 0 #sets the score
 
-        self.title_label = tk.Label(root, text="Te Reo Māori Quiz", font=("Helvetica", 20, "bold"), bg="#e0f7d4", fg="#1a5d1a")
-        self.title_label.pack(pady=20) #adds title wiht colour
+        self.title_label = tk.Label(root, text="Te Reo Māori Quiz", font=custom_font, bg="#e0f7d4", fg="#1a5d1a")
+        self.title_label.pack(pady=20) #adds title wiht colour and font
 
-        self.question_label = tk.Label(root, text="", font=("Helvetica", 16), bg="#e0f7d4", wraplength=450)
-        self.question_label.pack(pady=20) #adds question with colour
+        self.question_label = tk.Label(root, text="", font=custom_font, bg="#2c610f", wraplength=450)
+        self.question_label.pack(pady=20) #adds question font
 
-        self.true_button = tk.Button(root, text="True", font=("Helvetica", 14), bg="#a5d6a7", width=10, command=lambda: self.check_answer(True))
-        self.true_button.pack(pady=10) #adds true button
+        self.true_button = tk.Button(root, text="True", font=custom_font, bg="#a5d6a7", width=10, command=lambda: self.check_answer(True))
+        self.true_button.pack(pady=10) #adds true button and font
 
-        self.false_button = tk.Button(root, text="False", font=("Helvetica", 14), bg="#ef9a9a", width=10, command=lambda: self.check_answer(False))
-        self.false_button.pack(pady=10) #adds false button with colour
-        self.score_label = tk.Label(root, text="Score: 0", font=("Helvetica", 14))
+        self.false_button = tk.Button(root, text="False", font=custom_font, bg="#ef9a9a", width=10, command=lambda: self.check_answer(False))
+        self.false_button.pack(pady=10) #adds false button with colour and font
+        self.score_label = tk.Label(root, text="Score: 0", font=custom_font)
         self.score_label.pack(pady=20) #adds score text
 
         self.load_question() #loads the first question
@@ -90,5 +91,6 @@ class TeReoQuiz: #makes the class for the quiz
         self.load_question() #loads the next question
 
 root = tk.Tk() #creates the main window
+custom_font = tkFont.Font(family="OpenDyslexicAlta", size=14) #adds my custom font
 quiz_app = TeReoQuiz(root) #starts the quiz
 root.mainloop() #loops until closed
