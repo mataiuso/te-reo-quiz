@@ -10,7 +10,7 @@ questions = [ #nested list of q & a
     {"question": "Aroha means love or compassion.", "answer": True},
     {"question": "The Māori arrived in New Zealand in the 1900s.", "answer": False},
     {"question": "The Māori arrived in New Zealand over 700 years ago.", "answer": True},
-    {"question": "The haka is a traditional Māori dance.", "answer": True},
+    {"question": "The haka is a traditional Māori war dance.", "answer": True},
     {"question": "Kai means car.", "answer": False},
     {"question": "Kai means food.", "answer": True},
     {"question": "Wai means water.", "answer": True},
@@ -59,18 +59,22 @@ class TeReoQuiz: #makes the class for the quiz
         self.score = 0 #sets the score
 
         self.title_label = tk.Label(root, text="Te Reo Māori Quiz", font=custom_font, bg="#e0f7d4", fg="#1a5d1a")
-        self.title_label.pack(pady=20) #adds title wiht colour and font
+        self.title_label.pack(pady=20) #creates a label for the title
 
-        self.question_label = tk.Label(root, text="", font=custom_font, bg="#2c610f", wraplength=450)
-        self.question_label.pack(pady=20) #adds question font
+        self.question_label = tk.Label(root, text="", font=custom_font, bg="#2c610f", fg="white", wraplength=450, height=3)
+        self.question_label.pack(pady=20) #creates a label for the question
 
-        self.true_button = tk.Button(root, text="True", font=custom_font, bg="#a5d6a7", width=10, command=lambda: self.check_answer(True))
-        self.true_button.pack(pady=10) #adds true button and font
+        self.button_frame = tk.Frame(root, bg="#2c610f")
+        self.button_frame.pack(pady=10) #creates a frame for the buttons
 
-        self.false_button = tk.Button(root, text="False", font=custom_font, bg="#ef9a9a", width=10, command=lambda: self.check_answer(False))
-        self.false_button.pack(pady=10) #adds false button with colour and font
-        self.score_label = tk.Label(root, text="Score: 0", font=custom_font)
-        self.score_label.pack(pady=20) #adds score text
+        self.true_button = tk.Button(self.button_frame, text="True", font=custom_font, bg="#a5d6a7", width=10, command=lambda: self.check_answer(True))
+        self.true_button.grid(row=0, column=0, padx=10) #creates the true button
+
+        self.score_label = tk.Label(self.button_frame, text="Score: 0", font=custom_font, bg="#2c610f", fg="white")
+        self.score_label.grid(row=0, column=1, padx=10) #creates the score label
+
+        self.false_button = tk.Button(self.button_frame, text="False", font=custom_font, bg="#ef9a9a", width=10, command=lambda: self.check_answer(False))
+        self.false_button.grid(row=0, column=2, padx=10) #creates the false button
 
         self.load_question() #loads the first question
 
