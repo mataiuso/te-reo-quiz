@@ -32,23 +32,14 @@ Go to https://www.python.org/downloads/ and download Python. Make sure to tick t
 
 ### 2. Download the Game Files
 
-Click the green **Code** button on the GitHub page, then click **Download ZIP**. Open the ZIP file and move the files to a folder on your computer.
+Click the green **Code** button on the GitHub page, then click **Download ZIP**. Right click on the zip file and extract it.
 
 ### 3. Open the Game
 
+- Open the file called `OpenDyslexicAlta-Bold` then install it
 - Find the file called `Te Reo Quiz - Mataiyasi.py`
 - Double-click it. If it doesn’t open, try this:
-  - Right click the file and choose **Open With** > **Python**
-
-That’s it! The quiz should pop up on your screen.
-
----
-
-## 💬 Help! It Doesn’t Work!
-
-- Make sure Python is installed
-- Make sure all the files are in the same folder (especially `OpenDyslexicAlta-Bold.ttf`)
-- If it still doesn't work, ask a teacher or a tech-savvy friend for help
+- Right click the file and choose **Open With** > **Python** or **VSCode**
 
 ---
 
